@@ -4,14 +4,14 @@
 
 using namespace std;
 
-int size() {
+int size() { // Getting the size of array
     int n;
     cout << "Enter the size of array : ";
     cin >> n;
-    return n;
+    return n; // Returning the value of n
 }
 
-void input(vector<int> &array) {
+void input(vector<int> &array) { // Entering the data of array
     for (int i = 0; i < array.size(); i++)
     {
         cout << "Enter the data : ";
@@ -20,11 +20,14 @@ void input(vector<int> &array) {
 }
 
 void mergeSort(vector<int> &array, int left, int mid, int right) {
+
+    // Getting the size of first halved array
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
-    vector<int> L(n1), R(n2);
+    vector<int> L(n1), R(n2); // Creating two temperory arrays
 
+    // Halving the arrays until we have individual elements arrays
     for (int i = 0; i < n1; i++)
     {
         L[i] = array[left + i]; 
@@ -34,8 +37,10 @@ void mergeSort(vector<int> &array, int left, int mid, int right) {
         R[j] = array[mid + 1 + j];
     }
 
+    // Setting back the values of i and j
     int i = 0, j = 0;
     
+    // Sorting the array and merging them back
     while (i < n1 && j < n2)
     {
         if (L[i] <= R[j])
@@ -75,6 +80,7 @@ void recursion(vector<int> &array, int left, int right) {
     mergeSort(array, left, mid, right);
 }
 
+// Function to print arrays
 void printArray(vector<int> &array) { 
 
     for (int i = 0; i < array.size(); i++)
